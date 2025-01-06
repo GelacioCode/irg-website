@@ -40,10 +40,7 @@ const Section7 = () => {
     <section className="py-16 bg-gray-50">
       {/* Header */}
       <div className="text-center mb-12">
-        <h3 className="text-primary text-lg font-semibold uppercase">
-          Latest News
-        </h3>
-        <h2 className="text-4xl font-bold text-gray-800">From Our Blog</h2>
+        <h2 className="text-4xl font-bold text-primary">From Our Blog</h2>
       </div>
 
       {/* Blog Posts */}

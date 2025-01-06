@@ -41,11 +41,8 @@ const Section5 = () => {
     <section className="py-16 bg-gray-50">
       {/* Header */}
       <div className="text-center mb-12">
-        <h3 className="text-primary text-lg font-semibold uppercase">
+        <h2 className="text-4xl font-bold text-primary">
           Our Testimonials
-        </h3>
-        <h2 className="text-4xl font-bold text-gray-800">
-          What People Says
         </h2>
         <p className="text-gray-600 mt-4">
           Our seasoned team excels in real estate with years of successful

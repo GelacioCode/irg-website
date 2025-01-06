@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from "react";
-import houseImage1 from "../assets/images/house1.jpg";
-import houseImage2 from "../assets/images/house2.jpg";
-import houseImage3 from "../assets/images/house3.jpg";
-import houseImage4 from "../assets/images/house4.jpg";
-import houseImage5 from "../assets/images/house5.jpg";
+import houseImage1 from "../assets/images/povLake.jpg";
+import houseImage2 from "../assets/images/36.jpg";
+import houseImage3 from "../assets/images/springHeader.jpg";
 
 const Section1 = () => {
   const phrasesAndImages = [
-    { phrase: "Safe House", image: houseImage1 },
-    { phrase: "Cozy Home", image: houseImage2 },
-    { phrase: "Warm Abode", image: houseImage3 },
-    { phrase: "Peaceful Retreat", image: houseImage4 },
-    { phrase: "Serene Haven", image: houseImage5 },
+    { title: "Connecticut's Crown Jewel", subtitle: "Experience the Majestic Beauty of Candlewood Lake, Where 5,420 Acres of Pristine Waters Meet the Rolling Hills of Western Connecticut" , image: houseImage1 },
+    { title: "Local Expertise That Runs Deep", subtitle: "Navigate Your Way Through Candlewood Lake's 64 Distinct Communities with a Team That Knows Every Cove, Beach, and Neighborhood Intimately" , image: houseImage2 },
+    { title: "Your Dream Home Awaits", subtitle: "Discover Extraordinary Waterfront Properties Where Modern Luxury Meets Lakeside Living, Crafted Through Our Legacy of Excellence Since 2005" , image: houseImage3 }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -43,39 +39,21 @@ const Section1 = () => {
       {/* Content */}
       <div className="relative z-10 h-full flex px-8 md:px-20">
         {/* Left Content */}
-        <div className="w-1/2 flex flex-col justify-center text-white text-left pr-8">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Indulge in Your{" "}
+        <div className="w-full md:w-1/2 flex flex-col justify-center items-center text-white text-center px-4 md:text-left md:items-start md:pr-8">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 leading-tight">
+            
             <span className={`transition-opacity duration-500 ${fadeClass}`}>
-              {phrasesAndImages[currentIndex].phrase}
+              {phrasesAndImages[currentIndex].title}
             </span>
           </h1>
-          <p className="text-lg md:text-xl mb-6">
-            Discover your private oasis at Hamelengo, where every corner, from
-            the spacious garden to the relaxing pool, is crafted for your
-            comfort and enjoyment.
+          <p className="text-base sm:text-lg md:text-xl mb-6">
+              {phrasesAndImages[currentIndex].subtitle}
           </p>
-
-          {/* Categories 
-          <div className="flex space-x-4 mb-8">
-            <button className="px-4 py-2 bg-primary text-white rounded-full shadow hover:bg-blue-600">
-              Houses
-            </button>
-            <button className="px-4 py-2 bg-primary text-white rounded-full shadow hover:bg-blue-600">
-              Villa
-            </button>
-            <button className="px-4 py-2 bg-primary text-white rounded-full shadow hover:bg-blue-600">
-              Office
-            </button>
-            <button className="px-4 py-2 bg-primary text-white rounded-full shadow hover:bg-blue-600">
-              Apartments
-            </button>
-          </div>
-          */}
         </div>
 
+
         {/* Right Content */}
-        <div className="w-1/2 flex flex-col items-center justify-center opacity-50">
+        <div className="hidden md:flex w-1/2 flex-col items-center justify-center opacity-50">
           {phrasesAndImages.map((item, index) => (
             <button
               key={index}

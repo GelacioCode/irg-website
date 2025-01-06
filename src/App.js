@@ -21,16 +21,17 @@ import Agents from "./pages/Agents";
 import About from "./pages/About";
 
 import Blog from "./pages/Blog";
+import AgentProfile from "./pages/AgentProfile";
 
 function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
         <Header />
-        <main className="flex-grow pt-20">
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/buying/currentlistings" element={<h1>Test Page</h1>} />
+            <Route path="/agents/:id" element={<AgentProfile />} />
             <Route path="/buying/currentlistings" element={<CurrentListings />} />
             <Route path="/buying/homesearch" element={<HomeSearch />} />
             <Route path="/buying/lakeinfoguides" element={<LakeInfoGuide />} />
