@@ -4,7 +4,7 @@ function OurMarketingPlan() {
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       {/* Header Section */}
-      <div className="max-w-6xl bg-white shadow-md rounded-lg p-8 mx-auto mb-12">
+      <div className="max-w-6xl   p-8 mx-auto ">
         <h1 className="text-center text-4xl font-bold text-primary italic mb-6">
           Marketing Your Candlewood Lake Property
         </h1>
@@ -14,7 +14,7 @@ function OurMarketingPlan() {
       </div>
 
       {/* Sections */}
-      <div className="max-w-6xl bg-white shadow-md rounded-lg p-8 mx-auto mb-12 space-y-8">
+      <div className="max-w-6xl   p-8 mx-auto mb-12 space-y-8">
         {/* Professional Staging and Preparation */}
         <div>
           <h3 className="text-3xl font-bold text-primary mb-4">Professional Staging and Preparation</h3>
@@ -65,29 +65,30 @@ function OurMarketingPlan() {
 
         {/* Local Market Expertise */}
         <div>
-          <h3 className="text-3xl font-bold text-primary mb-4">Professional Photography and Aerial Imagery</h3>
+          <h3 className="text-3xl font-bold text-primary mb-4 ">Professional Photography and Aerial Imagery</h3>
           <p className="text-gray-600 text-lg leading-relaxed">
           As Candlewood Lake specialists, we bring an unmatched understanding of how to position your property effectively. We know how to highlight the features that matter most to lake property buyers, from dock specifications to community amenities. Our deep knowledge of the local market allows us to showcase your property's unique advantages, seasonal benefits, and community features that make it special. This expertise proves invaluable in crafting marketing messages that resonate with qualified buyers seeking the Candlewood Lake lifestyle.
           <br />Let's discuss how we can create a customized marketing plan for your property. Our comprehensive approach combines professional staging, cutting-edge technology, and proven traditional methods, ensuring your home receives the attention it deserves. Contact us today to learn more about showcasing your home to its fullest potential and achieving the best possible outcome for your sale.
           </p>
         </div>
+
+        {/* Call to Action */}
+        <div className="max-w-6xl   p-8 mx-auto text-center">
+          <h4 className="text-2xl font-bold italic text-gray-800 mb-4">
+            Experience the difference strategic marketing makes in selling your lake property.
+          </h4>
+          <p className="text-gray-600 text-lg leading-relaxed mb-6">
+            Contact us today to learn more about showcasing your home to its fullest potential and achieving the best possible outcome for your sale.
+          </p>
+          <a
+            href="/contactus"
+            className="bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary-dark transition-colors"
+          >
+            Contact Us
+          </a>
+        </div>
       </div>
 
-      {/* Call to Action */}
-      <div className="max-w-6xl bg-white shadow-md rounded-lg p-8 mx-auto text-center">
-        <h4 className="text-2xl font-bold italic text-gray-800 mb-4">
-          Experience the difference strategic marketing makes in selling your lake property.
-        </h4>
-        <p className="text-gray-600 text-lg leading-relaxed mb-6">
-          Contact us today to learn more about showcasing your home to its fullest potential and achieving the best possible outcome for your sale.
-        </p>
-        <a
-          href="/contactus"
-          className="bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary-dark transition-colors"
-        >
-          Contact Us
-        </a>
-      </div>
     </div>
   );
 }

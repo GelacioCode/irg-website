@@ -60,11 +60,9 @@ const CurrentListings = () => {
 
       return () => {
         // Clean up the script when the component unmounts
-        if (scriptContainerRef.current) {
-          const existingScript = document.getElementById("idxwidgetsrc-78913");
-          if (existingScript) {
-            scriptContainerRef.current.removeChild(existingScript);
-          }
+        const existingScript = document.getElementById("idxwidgetsrc-78913");
+        if (existingScript && scriptContainerRef.current) {
+          scriptContainerRef.current.removeChild(existingScript);
         }
       };
     }
@@ -73,23 +71,26 @@ const CurrentListings = () => {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto mb-12 px-4">
-        <div className="bg-white rounded-lg shadow-md p-8 text-center">
-          {/* Section Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary">Current Listings</h2>
-            <p className="text-gray-600 text-lg mb-4 leading-relaxed">
-              Explore our current listings to find your perfect home. Independent Realty Group specializes in matching you with properties that meet your needs, whether you are buying, selling, or renting.
-            </p>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Our listings are updated frequently to provide you with the latest opportunities in the market. Let's help you find your next property.
-            </p>
-          </div>
+        {/* First Section - Header */}
+        <div className="max-w-6xl  p-8 mx-auto mb-12">
+          <h1 className="text-4xl font-bold text-primary mb-6">Independent Realty Group Listings</h1>
+          <p className="text-gray-600 text-lg mb-4 leading-relaxed">
+            Explore our current listings to find your perfect home. Independent Realty Group specializes in matching you with properties that meet your needs, whether you are buying, selling, or renting.
+          </p>
+          <p className="text-gray-600 text-lg leading-relaxed">
+            Our listings are updated frequently to provide you with the latest opportunities in the market. Let's help you find your next property.
+          </p>
+        </div>
 
-          {/* Script Wrapper */}
+        {/* Second Section - Property Cards */}
+        <div className="max-w-6xl bg-white shadow-md rounded-lg p-8 mx-auto">
+          <h2 className="text-3xl font-bold text-primary mb-6">Available Properties</h2>
+          {/* Widget container where the script will be inserted */}
           <div
-            className="container mx-auto"
+            id="widget-container"
+            className="w-full max-w-full overflow-hidden"
+            style={{ minHeight: "300px" }}
             ref={scriptContainerRef}
-            id="script-container"
           ></div>
         </div>
       </div>
@@ -98,3 +99,4 @@ const CurrentListings = () => {
 };
 
 export default CurrentListings;
+

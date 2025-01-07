@@ -26,6 +26,13 @@ code {
   animation: fadeOut 0.5s ease-in-out;
 }
 
+#idx-header-wrapper {
+  position: sticky;
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 50; /* Ensure it's above other elements */
+  background-color: white; /* Background color for clarity */
+}
+
 @keyframes fadeIn {
   from {
     opacity: .5;

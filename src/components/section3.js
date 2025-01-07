@@ -167,31 +167,27 @@ const Section3 = () => {
 
       return () => {
         // Clean up the script when the component unmounts
-        if (scriptContainerRef.current) {
-          const existingScript = document.getElementById("idxwidgetsrc-48166");
-          if (existingScript) {
-            scriptContainerRef.current.removeChild(existingScript);
-          }
+        const existingScript = document.getElementById("idxwidgetsrc-48166");
+        if (existingScript && scriptContainerRef.current) {
+          scriptContainerRef.current.removeChild(existingScript);
         }
       };
     }
   }, []);
-      
 
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto mb-12 px-4">
-        <div className="bg-white rounded-lg shadow-md p-8 text-center">
-          {/* Section Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary">
-              Featured Properties
-            </h2>
-          </div>
+        {/* Section Header */}
+        <div className="max-w-6xl bg-white rounded-lg shadow-md p-8 mx-auto mb-12">
+          <h2 className="text-4xl font-bold text-primary mb-6 text-center">
+            Featured Properties
+          </h2>
 
-          {/* Script Wrapper */}
+          {/* Widget Container */}
           <div
-            className="container mx-auto"
+            className="w-full max-w-full overflow-hidden"
+            style={{ minHeight: "300px" }}
             ref={scriptContainerRef}
             id="script-container"
           ></div>

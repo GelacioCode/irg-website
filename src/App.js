@@ -22,12 +22,13 @@ import About from "./pages/About";
 
 import Blog from "./pages/Blog";
 import AgentProfile from "./pages/AgentProfile";
+import IDXHeaderWrapper from "./components/idxheaderwrapper";
 
 function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
-        <Header />
+        <IDXHeaderWrapper />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />

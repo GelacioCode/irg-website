@@ -184,23 +184,23 @@ const Section4 = () => {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto mb-12 px-4">
-        <div className="bg-white rounded-lg shadow-md p-8 text-center">
+        <div className="p-8 text-center">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary text-left mb-6">
+            <h2 className="text-4xl font-bold text-primary text-left mb-4">
             Ready to find your Perfect Home?
             </h2>
             <div className="text-gray-600 text-lg leading-relaxed space-y-4 text-left">
   <p>
     Start your home search here, or unlock a more personalized experience with our{" "}
-    <a href="/buying/home-search" className="text-primary underline hover:text-primary-dark">
+    <a href="https://candlewoodlakerealestate.idxbroker.com/idx/search/advanced" className="text-primary underline hover:text-primary-dark">
       advanced search
     </a>
     . From specific neighborhoods to must-have features, our advanced tools help you discover properties that perfectly match your vision of home.
   </p>
   <p>
     Whether you're just beginning your search or know exactly what you're looking for, we've got you covered. Use our quick search below, or take advantage of our{" "}
-    <a href="/buying/home-search" className="text-primary underline hover:text-primary-dark">
+    <a href="https://candlewoodlakerealestate.idxbroker.com/idx/search/advanced" className="text-primary underline hover:text-primary-dark">
       advanced search
     </a>
     {" "}to filter through amenities, neighborhoods, and property features to find homes that truly fit your lifestyle.
@@ -211,7 +211,7 @@ const Section4 = () => {
 
           {/* Script Wrapper */}
           <div
-            className="container mx-auto"
+            className="container mx-auto my-2"
             ref={scriptContainerRef}
             id="script-container"
           ></div>
