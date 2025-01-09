@@ -15,9 +15,15 @@ const Footer = () => {
             </a>{" "}
             📞
           </p>
-          <p>Monday to Friday - 8:00am - 5:00pm</p>
-          <p>499 Federal Road, Suite 20A, Brookfield, CT 06804</p>
-          <p>11 Saw Mill Road, New Fairfield, CT 06812</p>
+          {/* Brookfield Office */}
+          <p className="mt-4 font-bold">Brookfield Office</p>
+          <p>499 Federal Road, Suite 20A,</p>
+          <p>Brookfield, CT 06804</p>
+
+          {/* New Fairfield Office */}
+          <p className="mt-4 font-bold">New Fairfield Office</p>
+          <p>11 Saw Mill Road,</p>
+          <p>New Fairfield, CT 06812</p>
         </div>
 
         {/* Logo Section */}

@@ -35,17 +35,41 @@ const agents = [
   },
   {
     id: 3,
-    name: "Sadie Virtudes",
+    name: "Chris Robinson",
     role: "Realtor",
-    image: Sadie,
+    image: Chris,
+    about: `
+      With over 18 years of experience as a Realtor and more than 30 years in sales, I have honed my skills in providing exceptional service to my clients. Throughout my career, I have been honored with several top producer awards and numerous 5-star recommendations, a testament to my commitment to excellence.
+
+      Having lived in Danbury on Candlewood Lake since 1993, I have developed a profound connection to this beautiful area. Originally from the Finger Lakes region in New York, I bring a unique perspective and a wealth of knowledge about waterfront living. As a dedicated delegate to the Candlewood Lake Authority, I actively contribute to preserving and protecting this invaluable resource.
+
+      Family is at the heart of everything I do. I am happily married with two wonderful children, and together, we enjoy all the water-related activities that Candlewood Lake has to offer. From water skiing—an area where my friends say I excel—to boating, my hobbies reflect my passion for lake life.
+
+      Whether you are a first-time buyer, relocating for work, downsizing, or seeking the perfect lake house, I am here to guide you through every step of the process. I also have extensive experience with the VA loan process and am well-equipped to assist veterans and active military personnel in achieving their homeownership goals.
+
+      If you want to know anything about the lake, boats, or skiing, feel free to ask. I am always eager to share my knowledge and help you make the most informed decisions.
+    `,
     contact: {
-      email: "sadievirtudes@gmail.com",
-      phone: "2037886705",
+      email: "robinson.cj1@outlook.com",
+      phone: "2033126196",
       profile: "#",
     },
   },
   {
     id: 4,
+    name: "Ken Freundt",
+    role: "Realtor",
+    image: Ken,
+    about: "Having been born and raised in northern Fairfield County and having lived here my entire life, I have developed an extensive and intimate knowledge of the area. As a proud resident of a Candlewood Lake community, I cherish the moments spent boating and enjoying the beautiful scenery with friends and family. My deep-rooted connection to this region fuels my passion for real estate, and I am dedicated to helping you find your dream home. Allow me to share my love for the lake and my expertise in the local market to guide you in making the best real estate decisions.",
+    contact: {
+      email: "kenfreundt2020@gmail.com",
+      phone: "2037310003",
+      profile: "#",
+    },
+  },
+  
+  {
+    id: 5,
     name: "Tammi Ligouri",
     role: "Realtor",
     image: Tammy,
@@ -62,18 +86,7 @@ const agents = [
       profile: "#",
     },
   },
-  {
-    id: 5,
-    name: "Ken Freundt",
-    role: "Realtor",
-    image: Ken,
-    about: "Having been born and raised in northern Fairfield County and having lived here my entire life, I have developed an extensive and intimate knowledge of the area. As a proud resident of a Candlewood Lake community, I cherish the moments spent boating and enjoying the beautiful scenery with friends and family. My deep-rooted connection to this region fuels my passion for real estate, and I am dedicated to helping you find your dream home. Allow me to share my love for the lake and my expertise in the local market to guide you in making the best real estate decisions.",
-    contact: {
-      email: "kenfreundt2020@gmail.com",
-      phone: "2037310003",
-      profile: "#",
-    },
-  },
+  
   {
     id: 6,
     name: "Jean MacCarthy",
@@ -107,29 +120,20 @@ const agents = [
       phone: "9173317347",
       profile: "#",
     },
+    
   },
   {
     id: 8,
-    name: "Chris Robinson",
+    name: "Sadie Virtudes",
     role: "Realtor",
-    image: Chris,
-    about: `
-      With over 18 years of experience as a Realtor and more than 30 years in sales, I have honed my skills in providing exceptional service to my clients. Throughout my career, I have been honored with several top producer awards and numerous 5-star recommendations, a testament to my commitment to excellence.
-
-      Having lived in Danbury on Candlewood Lake since 1993, I have developed a profound connection to this beautiful area. Originally from the Finger Lakes region in New York, I bring a unique perspective and a wealth of knowledge about waterfront living. As a dedicated delegate to the Candlewood Lake Authority, I actively contribute to preserving and protecting this invaluable resource.
-
-      Family is at the heart of everything I do. I am happily married with two wonderful children, and together, we enjoy all the water-related activities that Candlewood Lake has to offer. From water skiing—an area where my friends say I excel—to boating, my hobbies reflect my passion for lake life.
-
-      Whether you are a first-time buyer, relocating for work, downsizing, or seeking the perfect lake house, I am here to guide you through every step of the process. I also have extensive experience with the VA loan process and am well-equipped to assist veterans and active military personnel in achieving their homeownership goals.
-
-      If you want to know anything about the lake, boats, or skiing, feel free to ask. I am always eager to share my knowledge and help you make the most informed decisions.
-    `,
+    image: Sadie,
     contact: {
-      email: "robinson.cj1@outlook.com",
-      phone: "2033126196",
+      email: "sadievirtudes@gmail.com",
+      phone: "2037886705",
       profile: "#",
     },
   },
+  
 ];
 
 function Agents() {

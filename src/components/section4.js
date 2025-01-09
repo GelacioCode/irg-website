@@ -160,6 +160,54 @@ const Section4 = () => {
   useEffect(() => {
     if (scriptContainerRef.current) {
       // Check if the script already exists
+      const style = document.createElement("style");
+    style.innerHTML = `
+      #IDX-quicksearchForm-62376 {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 16px;
+      }
+      #IDX-quicksearchForm-62376 .IDX-qsFieldWrap {
+        display: flex;
+        flex-direction: column;
+      }
+      #IDX-quicksearchForm-62376 .IDX-qsLabel {
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+      #IDX-quicksearchForm-62376 .IDX-qsInput {
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      #IDX-quicksearchForm-62376 .IDX-qsButtonInput {
+        background-color: #00a1b2;
+        color: white;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 4px;
+        font-size: 16px;
+        margin-top: 23px;
+      }
+      #IDX-quicksearchForm-62376 .IDX-qsButtonInput:hover {
+        background-color: #007b8a;
+      }
+      @media (max-width: 1280px) and (min-width: 770px) {
+        #IDX-quicksearchForm-62376 {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+        #IDX-quicksearchForm-62376 .IDX-qsFieldWrap {
+          flex-direction: column;
+        }
+      }
+    `;
+    scriptContainerRef.current.appendChild(style);
       const existingScript = document.getElementById("idxwidgetsrc-62376");
       if (!existingScript) {
         const script = document.createElement("script");
@@ -182,11 +230,11 @@ const Section4 = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto mb-12 px-4">
-        <div className="p-8 text-center">
+    <section className="py-4 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center">
           {/* Section Header */}
-          <div className="text-center mb-12">
+          <div className="text-center">
             <h2 className="text-4xl font-bold text-primary text-left mb-4">
             Ready to find your Perfect Home?
             </h2>
@@ -211,7 +259,7 @@ const Section4 = () => {
 
           {/* Script Wrapper */}
           <div
-            className="container mx-auto my-2"
+            className="container"
             ref={scriptContainerRef}
             id="script-container"
           ></div>

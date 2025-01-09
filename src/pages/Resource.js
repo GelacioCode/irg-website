@@ -232,6 +232,7 @@ function Resource() {
               { service: "Plumber", name: "Brookfield Plumbing and Heating", phone: "(203) 775-8393" },
               { service: "Plumber", name: "Ricks Pump and Water Service", phone: "(203) 775-9869" },
               { service: "Roofer", name: "Affordable Roofing", phone: "(203) 948-7393" },
+              { service: "Septic Inspector", name: "Brookfield Septic", phone: "(203) 546-7946" },
               { service: "Septic Inspector", name: "Lathrop Septic - Michael Lathrop", phone: "(203) 746-4501" },
               { service: "Septic Inspector", name: "J.C. Nota Septic", phone: "(860) 350-3297" },
               { service: "Septic Inspector", name: "A-1 Septic - Dennis Carlson", phone: "(203) 746-5482" },

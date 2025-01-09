@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import waterfront from "../assets/images/hdwaterfronthomes.jpg";
+
 
 function WaterfrontHomes() {
   useEffect(() => {
@@ -17,9 +19,16 @@ function WaterfrontHomes() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50 py-2">
+      
       {/* Header Section */}
-      <div className="max-w-6xl p-8 mx-auto">
+      <div className="max-w-6xl p-2 mx-auto">
+        {/* Image Above Heading */}
+        <img
+          src= {waterfront} // Update with the correct path
+          alt="Waterfront"
+          className="w-full h-200 object-contain mb-6" // Adjust height as needed
+        />
         <h1 className="text-center text-4xl font-bold text-primary italic mb-6">
           Waterfront Homes at Candlewood Lake
         </h1>

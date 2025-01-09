@@ -83,12 +83,12 @@ const Header = () => {
                   >
                     Home Search
                   </a>
-                  {/* <a
+                  <a
                     href="/buying/lakeinfoguides"
                     className="block px-4 py-2 text-sm text-primary font-bold hover:bg-gray-100"
                   >
                     Lake Info Guide
-                  </a> */}
+                  </a>
                 </div>
               )}
             </div>
@@ -126,6 +126,13 @@ const Header = () => {
                     className="block px-4 py-2 text-sm text-primary font-bold hover:bg-gray-100"
                   >
                     Home Valuation
+                  </a>
+
+                  <a
+                    href="/selling/marketreports"
+                    className="block px-4 py-2 text-sm text-primary font-bold hover:bg-gray-100"
+                  >
+                    Market Reports
                   </a>
                 </div>
               )}

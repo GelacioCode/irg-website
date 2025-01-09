@@ -32,13 +32,21 @@ import image28 from "../../assets/images/LakeGuides/Park/17.jpg";
 import image29 from "../../assets/images/LakeGuides/Park/18.jpg";
 import image30 from "../../assets/images/LakeGuides/Park/19.jpg";
 
+import lakeactivities from "../../assets/images/lakeactivities.jpg";
+
+
 function LakeInfoGuide() {
   const [activeTab, setActiveTab] = useState("Marinas");
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50 py-2">
       {/* Header Section */}
-      <div className="max-w-6xl p-8 mx-auto mb-12">
+      <div className="max-w-6xl p-2 mx-auto mb-12">
+        <img
+            src= {lakeactivities} // Update with the correct path
+            alt="Waterfront"
+            className="w-full h-200 object-contain mb-6" // Adjust height as needed
+        />
         <h1 className="text-center text-4xl font-bold text-primary italic mb-6">
           Candlewood Lake Activities
         </h1>
@@ -84,7 +92,7 @@ function LakeInfoGuide() {
       <div className="max-w-6xl p-8 mx-auto">
         {/* Tabs Navigation */}
         <div className="flex flex-wrap justify-center gap-4 mb-8">
-            {["Marinas", "Boating", "Parks", "Hiking", "Other Activities"].map((tab) => (
+            {["Marinas", "Boating", "Town Parks", "Hiking", "Other Activities"].map((tab) => (
                 <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -219,7 +227,7 @@ function LakeInfoGuide() {
                         {marina.phone}
                         </a>
                     </p>
-                    <p className="text-gray-600 italic">{marina.amenities}</p>
+                    <p className="text-gray-600 italic">{marina.address}</p>
                     </div>
                 ))}
                 </div>
@@ -228,7 +236,7 @@ function LakeInfoGuide() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
                     {
-                    name: "LatinsCove Boat Launch",
+                    name: "Latins Cove Boat Launch",
                     address: "8 Forty Acre Mountain Road, Danbury, CT 06811",
                     phone: "Latins Cove DEP Website",
                     description: "Capacity: 100",
@@ -262,7 +270,7 @@ function LakeInfoGuide() {
                         {marina.phone}
                         </a>
                     </p>
-                    <p className="text-gray-600 italic">{marina.amenities}</p>
+                    <p className="text-gray-600 italic">{marina.address}</p>
                     </div>
                 ))}
                 </div>
@@ -420,7 +428,7 @@ function LakeInfoGuide() {
             </div>
         </div>
         )} */}
-        {activeTab === "Parks" && (
+        {activeTab === "Town Parks" && (
         <div>
             <h2 className="text-3xl font-bold text-primary mb-4 text-left">Town Parks</h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-6 text-left">

@@ -23,6 +23,7 @@ import About from "./pages/About";
 import Blog from "./pages/Blog";
 import AgentProfile from "./pages/AgentProfile";
 import IDXHeaderWrapper from "./components/idxheaderwrapper";
+import MarketReports from "./pages/Selling/MarketReports";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             <Route path="/selling/ourmarketingplan" element={<OurMarketingPlan />} />
             <Route path="/selling/preparingyourhomeforsale" element={<PreparingYourHome />} />
             <Route path="/selling/homevaluation" element={<HomeValuation />} />
+            <Route path="/selling/marketreports" element={<MarketReports />} />
 
             <Route path="/ourlistings" element={<Listing />} />
             <Route path="/waterfronthomes" element={<Properties />} />

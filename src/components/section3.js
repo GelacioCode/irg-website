@@ -176,12 +176,12 @@ const Section3 = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-4 bg-gray-50">
       <div className="container mx-auto mb-12 px-4">
         {/* Section Header */}
-        <div className="max-w-6xl bg-white rounded-lg shadow-md p-8 mx-auto mb-12">
+        <div className="max-w-8xl mx-auto mb-12">
           <h2 className="text-4xl font-bold text-primary mb-6 text-center">
-            Featured Properties
+            Independent Realty Group Listings
           </h2>
 
           {/* Widget Container */}

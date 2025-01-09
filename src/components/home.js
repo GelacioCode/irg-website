@@ -12,6 +12,7 @@ import Christina from "../assets/images/christina.jpg";
 import Izzy from "../assets/images/izzy.jpg";
 import Sadie from "../assets/images/sadie.jpg";
 import Tammy from "../assets/images/tammy.gif";
+import ContactForm from "./contactform";
 
 const agents = [
   {
@@ -65,8 +66,10 @@ function Home() {
       <>
         <Section1 />
         <Section2 />
-        <Section3 />
         <Section4 />
+        <Section3 />
+        <ContactForm />
+        
         {/* <Section5 /> */}
         {/* <Section6 agents={agents} /> */}
         {/* <Section7 /> */}
