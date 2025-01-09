@@ -21,6 +21,8 @@ const agents = [
       phone: "2037333969", // Replace with actual phone link
       profile: "#", // Replace with actual profile link
     },
+    currentwidget: '<script charset="UTF-8" type="text/javascript" id="idxwidgetsrc-62378" src="//candlewoodlakerealestate.idxbroker.com/idx/customshowcasejs.php?widgetid=62378"></script>',
+    soldwidget: '<script charset="UTF-8" type="text/javascript" id="idxwidgetsrc-623781" src="//candlewoodlakerealestate.idxbroker.com/idx/customshowcasejs.php?widgetid=62381"></script>',
   },
   {
     id: 2,
@@ -32,6 +34,7 @@ const agents = [
       phone: "2037330352",
       profile: "#",
     },
+    currentwidget: '<script charset="UTF-8" type="text/javascript" id="idxwidgetsrc-623781" src="//candlewoodlakerealestate.idxbroker.com/idx/customshowcasejs.php?widgetid=62381"></script>',
   },
   {
     id: 3,
@@ -54,6 +57,8 @@ const agents = [
       phone: "2033126196",
       profile: "#",
     },
+    soldwidget: '<script charset="UTF-8" type="text/javascript" id="idxwidgetsrc-623781" src="//candlewoodlakerealestate.idxbroker.com/idx/customshowcasejs.php?widgetid=62381"></script>',
+    
   },
   {
     id: 4,
@@ -66,6 +71,7 @@ const agents = [
       phone: "2037310003",
       profile: "#",
     },
+  
   },
   
   {
@@ -85,6 +91,7 @@ const agents = [
       phone: "2037881210",
       profile: "#",
     },
+    
   },
   
   {
@@ -98,6 +105,7 @@ const agents = [
       phone: "2034175946",
       profile: "#",
     },
+    
   },
   {
     id: 7,
@@ -120,6 +128,8 @@ const agents = [
       phone: "9173317347",
       profile: "#",
     },
+    soldwidget: '<script charset="UTF-8" type="text/javascript" id="idxwidgetsrc-623781" src="//candlewoodlakerealestate.idxbroker.com/idx/customshowcasejs.php?widgetid=62381"></script>',
+    
     
   },
   {
@@ -132,6 +142,8 @@ const agents = [
       phone: "2037886705",
       profile: "#",
     },
+    soldwidget: '<script charset="UTF-8" type="text/javascript" id="idxwidgetsrc-623781" src="//candlewoodlakerealestate.idxbroker.com/idx/customshowcasejs.php?widgetid=62381"></script>',
+    
   },
   
 ];

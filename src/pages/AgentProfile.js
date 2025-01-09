@@ -1,10 +1,64 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 const AgentProfile = () => {
   const location = useLocation();
   const { agent } = location.state || {}; // Retrieve agent from state
-  console.log(agent);
+  const currentWidgetRef = useRef(null);
+  const soldWidgetRef = useRef(null);
+
+  const [showCurrentListings, setShowCurrentListings] = useState(true);
+  const [showSoldListings, setShowSoldListings] = useState(true);
+
+  useEffect(() => {
+    // Inject the current listings widget
+    if (currentWidgetRef.current && agent?.currentwidget) {
+      currentWidgetRef.current.innerHTML = agent.currentwidget;
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.charset = "UTF-8";
+      script.src = currentWidgetRef.current.querySelector("script")?.src;
+
+      script.onload = () => {
+        const noResultsMessage = currentWidgetRef.current.querySelector(
+          "#IDX-noResultsMessage-62382"
+        );
+        if (noResultsMessage && noResultsMessage.textContent.includes("No Properties Found")) {
+          setShowCurrentListings(false);
+        } else {
+          setShowCurrentListings(true);
+        }
+      };
+
+      document.body.appendChild(script);
+    } else {
+      setShowCurrentListings(false);
+    }
+
+    // Inject the sold listings widget
+    if (soldWidgetRef.current && agent?.soldwidget) {
+      soldWidgetRef.current.innerHTML = agent.soldwidget;
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.charset = "UTF-8";
+      script.src = soldWidgetRef.current.querySelector("script")?.src;
+
+      script.onload = () => {
+        const noResultsMessage = soldWidgetRef.current.querySelector(
+          "#IDX-noResultsMessage-62383"
+        );
+        if (noResultsMessage && noResultsMessage.textContent.includes("No Properties Found")) {
+          setShowSoldListings(false);
+        } else {
+          setShowSoldListings(true);
+        }
+      };
+
+      document.body.appendChild(script);
+    } else {
+      setShowSoldListings(false);
+    }
+  }, [agent]);
 
   if (!agent) {
     return (
@@ -17,81 +71,65 @@ const AgentProfile = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Profile Content */}
-      <div className="flex flex-col items-center gap-8 text-center bg-white shadow-lg rounded-lg p-8 mb-8 mt-6">
-        {/* Agent Image */}
-        <div className="w-80 h-80 overflow-hidden">
-          <img
-            src={agent.image}
-            alt={agent.name}
-            className="w-full h-full object-contain"
-          />
-        </div>
+      {/* About the Agent Section */}
+      <div className="p-8 mb-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-[35%_65%] gap-8 items-start">
+          {/* Left Column: Image and Contact Buttons */}
+          <div className="flex flex-col items-center mt-14">
+            {agent.image ? (
+              <img
+                src={agent.image}
+                alt={`${agent.name}'s image`}
+                className="rounded-lg shadow-lg max-w-full h-72 w-72 object-cover"
+              />
+            ) : (
+              <div className="w-72 h-72 bg-gray-200 rounded-lg flex items-center justify-center">
+                <span className="text-gray-500">No Image Available</span>
+              </div>
+            )}
+            {/* Contact Buttons */}
+            <div className="flex gap-4 mt-4">
+              <a
+                href={`mailto:${agent.contact.email}`}
+                className="bg-primary text-white px-6 py-2 rounded-md font-semibold hover:bg-gray-800 transition-colors"
+              >
+                Email
+              </a>
+              <a
+                href={`tel:${agent.contact.phone}`}
+                className="bg-primary text-white px-6 py-2 rounded-md font-semibold hover:bg-gray-800 transition-colors"
+              >
+                Call
+              </a>
+            </div>
+          </div>
 
-        {/* Agent Details */}
-        <div>
-          <h1 className="text-4xl font-bold text-gray-800">{agent.name}</h1>
-          <p className="text-gray-500 text-lg">{agent.role}</p>
-          <div className="mt-4">
-            <p className="text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-              lacinia odio vitae vestibulum.
+          {/* Right Column: About Text */}
+          <div className="flex flex-col items-center justify-center">
+            <h2 className="text-3xl font-bold text-primary mb-4 text-start">About {agent.name}</h2>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              {agent.about ||
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
             </p>
           </div>
         </div>
-
-        {/* Contact Buttons */}
-        <div className="flex gap-4">
-          <a
-            href={`mailto:${agent.contact.email}`}
-            className="bg-primary text-white px-6 py-2 rounded-md font-semibold hover:bg-gray-800 transition-colors"
-          >
-            Email
-          </a>
-          <a
-            href={`tel:${agent.contact.phone}`}
-            className="bg-primary text-white px-6 py-2 rounded-md font-semibold hover:bg-gray-800 transition-colors"
-          >
-            Call
-          </a>
-        </div>
-      </div>
-
-      {/* About the Agent Section */}
-      <div className="bg-white shadow-md rounded-lg p-8 mb-8 max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">About {agent.name}</h2>
-        <p className="text-gray-600 text-lg leading-relaxed">
-          {agent.about || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
-        </p>
       </div>
 
       {/* Current Listings Section */}
-      <div className="bg-white shadow-md rounded-lg p-8 mb-8 max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">Current Listings</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[...Array(3)].map((_, index) => (
-            <div key={index} className="border rounded-lg shadow-sm p-4">
-              <div className="h-40 bg-gray-200 mb-4"></div>
-              <h3 className="text-xl font-semibold text-gray-800">Listing Title</h3>
-              <p className="text-gray-500 text-sm">Location or details here</p>
-            </div>
-          ))}
+      {showCurrentListings && (
+        <div className="bg-white shadow-md rounded-lg p-8 max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-primary mb-4">Current Listings</h2>
+          <div ref={currentWidgetRef} className="mt-4"></div>
         </div>
-      </div>
+      )}
 
       {/* Sold Listings Section */}
-      <div className="bg-white shadow-md rounded-lg p-8 mb-12 max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">Sold Listings</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[...Array(3)].map((_, index) => (
-            <div key={index} className="border rounded-lg shadow-sm p-4">
-              <div className="h-40 bg-gray-200 mb-4"></div>
-              <h3 className="text-xl font-semibold text-gray-800">Sold Property</h3>
-              <p className="text-gray-500 text-sm">Location or details here</p>
-            </div>
-          ))}
+      {showSoldListings && (
+        <div className="bg-white shadow-md rounded-lg p-8 max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-primary mb-4">Sold Listings</h2>
+          <div ref={soldWidgetRef} className="mt-4"></div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

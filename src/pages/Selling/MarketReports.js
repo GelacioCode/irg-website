@@ -33,7 +33,7 @@ const MarketReports = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       {/* Header Section */}
-      <div className="max-w-6xl bg-white shadow-md rounded-lg p-8 mx-auto mb-12">
+      <div className="max-w-6xl p-8 mx-auto mb-12">
         <h1 className="text-4xl font-bold text-primary mb-6">Market Reports</h1>
         <p className="text-gray-600 text-lg mb-4 leading-relaxed">
           Stay ahead of the market with the latest insights and trends in your area. Our comprehensive market reports provide you with the data you need to make informed real estate decisions.
