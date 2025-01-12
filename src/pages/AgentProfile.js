@@ -1,65 +1,68 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
+import { agents } from "./Agents";
 
 const AgentProfile = () => {
   const location = useLocation();
-  const { agent } = location.state || {}; // Retrieve agent from state
+  const { id } = useParams();
+  const [agent, setAgent] = useState(location.state?.agent || null);
+
   const currentWidgetRef = useRef(null);
   const soldWidgetRef = useRef(null);
 
   const [showCurrentListings, setShowCurrentListings] = useState(true);
   const [showSoldListings, setShowSoldListings] = useState(true);
 
+  // Fetch agent details if not passed via state
   useEffect(() => {
-    // Inject the current listings widget
-    if (currentWidgetRef.current && agent?.currentwidget) {
-      currentWidgetRef.current.innerHTML = agent.currentwidget;
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.charset = "UTF-8";
-      script.src = currentWidgetRef.current.querySelector("script")?.src;
-
-      script.onload = () => {
-        const noResultsMessage = currentWidgetRef.current.querySelector(
-          "#IDX-noResultsMessage-62382"
-        );
-        if (noResultsMessage && noResultsMessage.textContent.includes("No Properties Found")) {
-          setShowCurrentListings(false);
-        } else {
-          setShowCurrentListings(true);
-        }
-      };
-
-      document.body.appendChild(script);
-    } else {
-      setShowCurrentListings(false);
+    if (!agent && id) {
+      const fetchedAgent = agents.find((agent) => agent.id === parseInt(id, 10));
+      if (fetchedAgent) setAgent(fetchedAgent);
     }
+  }, [agent, id]);
 
-    // Inject the sold listings widget
-    if (soldWidgetRef.current && agent?.soldwidget) {
-      soldWidgetRef.current.innerHTML = agent.soldwidget;
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.charset = "UTF-8";
-      script.src = soldWidgetRef.current.querySelector("script")?.src;
+  // Function to handle widget injection and observe changes
+  const observeWidget = (ref, widgetId, setShowFunction) => {
+    if (!ref.current || !widgetId) return;
 
-      script.onload = () => {
-        const noResultsMessage = soldWidgetRef.current.querySelector(
-          "#IDX-noResultsMessage-62383"
-        );
-        if (noResultsMessage && noResultsMessage.textContent.includes("No Properties Found")) {
-          setShowSoldListings(false);
-        } else {
-          setShowSoldListings(true);
-        }
-      };
+    // Clear existing content and inject the script
+    ref.current.innerHTML = "";
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.charset = "UTF-8";
+    script.src = `//candlewoodlakerealestate.idxbroker.com/idx/customshowcasejs.php?widgetid=${widgetId}`;
 
-      document.body.appendChild(script);
-    } else {
-      setShowSoldListings(false);
+    // Create a MutationObserver to detect changes in the DOM
+    const observer = new MutationObserver(() => {
+      const noResultsMessage = ref.current.querySelector(
+        `#IDX-noResultsMessage-${widgetId}`
+      );
+      if (noResultsMessage && noResultsMessage.textContent.includes("No Properties Found")) {
+        setShowFunction(false); // Hide the widget if no properties are found
+        observer.disconnect(); // Stop observing once the message is found
+      } else {
+        setShowFunction(true); // Show the widget
+      }
+    });
+
+    // Start observing changes in the widget container
+    observer.observe(ref.current, { childList: true, subtree: true });
+
+    // Append the script to the widget container
+    ref.current.appendChild(script);
+
+    // Clean up observer when the component unmounts
+    return () => observer.disconnect();
+  };
+
+  useEffect(() => {
+    if (agent) {
+      observeWidget(currentWidgetRef, agent.currentwidget, setShowCurrentListings);
+      observeWidget(soldWidgetRef, agent.soldwidget, setShowSoldListings);
     }
   }, [agent]);
 
+  // Render Agent Not Found
   if (!agent) {
     return (
       <div className="text-center py-16">
@@ -71,10 +74,8 @@ const AgentProfile = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* About the Agent Section */}
       <div className="p-8 mb-8 max-w-5xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-[35%_65%] gap-8 items-start">
-          {/* Left Column: Image and Contact Buttons */}
           <div className="flex flex-col items-center mt-14">
             {agent.image ? (
               <img
@@ -87,35 +88,30 @@ const AgentProfile = () => {
                 <span className="text-gray-500">No Image Available</span>
               </div>
             )}
-            {/* Contact Buttons */}
-            <div className="flex gap-4 mt-4">
+            <div className="flex gap-4 mt-6">
               <a
                 href={`mailto:${agent.contact.email}`}
-                className="bg-primary text-white px-6 py-2 rounded-md font-semibold hover:bg-gray-800 transition-colors"
+                className="bg-primary text-white px-6 py-2 rounded-md font-semibold hover:bg-gray-800 hover:shadow-lg transition-all"
               >
                 Email
               </a>
               <a
                 href={`tel:${agent.contact.phone}`}
-                className="bg-primary text-white px-6 py-2 rounded-md font-semibold hover:bg-gray-800 transition-colors"
+                className="bg-primary text-white px-6 py-2 rounded-md font-semibold hover:bg-gray-800 hover:shadow-lg transition-all"
               >
                 Call
               </a>
             </div>
           </div>
-
-          {/* Right Column: About Text */}
           <div className="flex flex-col items-center justify-center">
             <h2 className="text-3xl font-bold text-primary mb-4 text-start">About {agent.name}</h2>
             <p className="text-gray-600 text-lg leading-relaxed">
-              {agent.about ||
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
+              {agent.about || "No description available for this agent."}
             </p>
           </div>
         </div>
       </div>
 
-      {/* Current Listings Section */}
       {showCurrentListings && (
         <div className="bg-white shadow-md rounded-lg p-8 max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-primary mb-4">Current Listings</h2>
@@ -123,9 +119,8 @@ const AgentProfile = () => {
         </div>
       )}
 
-      {/* Sold Listings Section */}
       {showSoldListings && (
-        <div className="bg-white shadow-md rounded-lg p-8 max-w-5xl mx-auto">
+        <div className="bg-white shadow-md rounded-lg p-8 max-w-5xl mx-auto mt-6">
           <h2 className="text-3xl font-bold text-primary mb-4">Sold Listings</h2>
           <div ref={soldWidgetRef} className="mt-4"></div>
         </div>

@@ -10,19 +10,29 @@ import Jean from "../assets/images/jean.jpg";
 import Brett from "../assets/images/brett.jpg";
 import Chris from "../assets/images/chrisRob.jpg";
 
-const agents = [
+export const agents = [
   {
     id: 1,
     name: "Christina Cavallo",
     role: "Owner/Broker",
     image: Christina,
+    about: `
+      A lifelong resident of the Candlewood Lake region, Christina Cavallo is dedicated to guiding clients through every aspect of their real estate journey. 
+      As the niece and protégé of Independent Realty Group’s late founder, Ellen Cavallo Buccitti, Christina spent five invaluable years as Ellen’s assistant—immersed in day-to-day operations, absorbing Ellen’s deep knowledge of waterfront properties, and inheriting her unwavering commitment to personalized service.
+      
+      In 2023, Christina assumed the role of Broker at Independent Realty Group, embracing both the company’s distinguished legacy and a new era of leadership. A devoted mother, Christina understands the importance of finding not just a house but a home—one that perfectly suits her clients’ families, lifestyles, and dreams. Her expertise spans Fairfield and Litchfield Counties, with a specialized focus on Candlewood Lake communities. From waterfront regulations to dock rights, she confidently navigates the complexities of buying and selling lake properties, ensuring an informed and seamless experience for every client.
+      
+      Carrying forward Ellen’s vision, Christina remains passionate about the personal touch that has defined Independent Realty Group since 2005. She believes in the power of local expertise and genuine connections, offering insightful guidance that goes beyond traditional real estate transactions. Whether you’re seeking a year-round lakeside haven or a seasonal retreat, Christina is committed to helping you discover the very best of the Candlewood Lake lifestyle—just as her aunt did for nearly two decades.
+      
+      Contact Christina Cavallo today and let her continue Ellen’s legacy of excellence by helping you find your perfect place to call home.
+    `,
     contact: {
       email: "chris@inependentrealtygroup.com", // Replace with actual email link
       phone: "2037333969", // Replace with actual phone link
       profile: "#", // Replace with actual profile link
     },
-    currentwidget: '<script charset="UTF-8" type="text/javascript" id="idxwidgetsrc-62378" src="//candlewoodlakerealestate.idxbroker.com/idx/customshowcasejs.php?widgetid=62378"></script>',
-    soldwidget: '<script charset="UTF-8" type="text/javascript" id="idxwidgetsrc-623781" src="//candlewoodlakerealestate.idxbroker.com/idx/customshowcasejs.php?widgetid=62381"></script>',
+    currentwidget: 62378,
+    soldwidget: 62381,
   },
   {
     id: 2,
@@ -34,7 +44,8 @@ const agents = [
       phone: "2037330352",
       profile: "#",
     },
-    currentwidget: '<script charset="UTF-8" type="text/javascript" id="idxwidgetsrc-623781" src="//candlewoodlakerealestate.idxbroker.com/idx/customshowcasejs.php?widgetid=62381"></script>',
+    soldwidget: 62390,
+    currentwidget: 62389,
   },
   {
     id: 3,
@@ -57,7 +68,8 @@ const agents = [
       phone: "2033126196",
       profile: "#",
     },
-    soldwidget: '<script charset="UTF-8" type="text/javascript" id="idxwidgetsrc-623781" src="//candlewoodlakerealestate.idxbroker.com/idx/customshowcasejs.php?widgetid=62381"></script>',
+    currentwidget: 62392,
+    soldwidget: 62393,
     
   },
   {
@@ -71,6 +83,8 @@ const agents = [
       phone: "2037310003",
       profile: "#",
     },
+    currentwidget: 62396,
+    soldwidget: 62397,
   
   },
   
@@ -91,6 +105,8 @@ const agents = [
       phone: "2037881210",
       profile: "#",
     },
+    currentwidget: 62400,
+    soldwidget: 62401,
     
   },
   
@@ -105,6 +121,8 @@ const agents = [
       phone: "2034175946",
       profile: "#",
     },
+    currentwidget: 62394,
+    soldwidget: 62395,
     
   },
   {
@@ -128,8 +146,8 @@ const agents = [
       phone: "9173317347",
       profile: "#",
     },
-    soldwidget: '<script charset="UTF-8" type="text/javascript" id="idxwidgetsrc-623781" src="//candlewoodlakerealestate.idxbroker.com/idx/customshowcasejs.php?widgetid=62381"></script>',
-    
+    currentwidget: 62391,
+    soldwidget: 62384,
     
   },
   {
@@ -142,7 +160,8 @@ const agents = [
       phone: "2037886705",
       profile: "#",
     },
-    soldwidget: '<script charset="UTF-8" type="text/javascript" id="idxwidgetsrc-623781" src="//candlewoodlakerealestate.idxbroker.com/idx/customshowcasejs.php?widgetid=62381"></script>',
+    currentwidget: 62398,
+    soldwidget: 62399,
     
   },
   

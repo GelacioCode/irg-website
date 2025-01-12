@@ -1,22 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import waterfront from "../assets/images/hdwaterfronthomes.jpg";
 
 
 function WaterfrontHomes() {
-  useEffect(() => {
-    // Dynamically load the widget script
-    const widgetId = "idxwidgetsrc-75410";
-
-    // Check if the script already exists to avoid duplication
-    if (!document.getElementById(widgetId)) {
-      const script = document.createElement("script");
-      script.charset = "UTF-8";
-      script.type = "text/javascript";
-      script.id = widgetId;
-      script.src = "//candlewoodlakerealestate.idxbroker.com/idx/widgets/75410";
-      document.getElementById("widget-container").appendChild(script);
-    }
-  }, []);
+  const scriptContainerRef = useRef(null);
+  
+    useEffect(() => {
+      if (scriptContainerRef.current) {
+        const script = document.createElement("script");
+        script.charset = "UTF-8";
+        script.type = "text/javascript";
+        script.id = "idxwidgetsrc-79923";
+        script.src =
+          "//candlewoodlakerealestate.idxbroker.com/idx/widgets/79923";
+        scriptContainerRef.current.appendChild(script);
+  
+        return () => {
+          // Clean up the script when the component unmounts
+          const existingScript = document.getElementById("idxwidgetsrc-79923");
+          if (existingScript && scriptContainerRef.current) {
+            scriptContainerRef.current.removeChild(existingScript);
+          }
+        };
+      }
+    }, []);
 
   return (
     <div className="min-h-screen bg-gray-50 py-2">
@@ -110,7 +117,12 @@ function WaterfrontHomes() {
       {/* Widget Section */}
       <div className="max-w-6xl p-8 mx-auto">
         <h2 className="text-3xl font-bold text-primary mb-6">Waterfront Homes</h2>
-        <div id="widget-container" className="w-full max-w-full overflow-hidden" style={{ minHeight: "300px" }}></div>
+        <div
+            id="widget-container"
+            className="w-full max-w-full overflow-hidden"
+            style={{ minHeight: "300px" }}
+            ref={scriptContainerRef}
+          ></div>
       </div>
     </div>
   );
