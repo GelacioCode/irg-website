@@ -39,13 +39,13 @@ const Section6 = ({ agents = [] }) => {
             <div className="flex justify-center space-x-4">
               <a
                 href={`mailto:${agent.contact.email}`}
-                className="bg-primary text-white px-4 py-2 rounded-md hover:bg-gray-800 transition-colors"
+                className="bg-primary text-white px-4 py-2 rounded-md shadow-lg shadow-gray-800/40 hover:shadow-none transition-all"
               >
                 Email
               </a>
               <a
                 href={`tel:${agent.contact.phone}`}
-                className="bg-primary text-white px-4 py-2 rounded-md hover:bg-gray-800 transition-colors"
+                className="bg-primary text-white px-4 py-2 rounded-md shadow-lg shadow-gray-800/40 hover:shadow-none transition-all"
               >
                 Call
               </a>
@@ -53,7 +53,7 @@ const Section6 = ({ agents = [] }) => {
                 onClick={() =>
                   navigate(`/agents/${agent.id}`, { state: { agent } })
                 }
-                className="bg-primary text-white px-4 py-2 rounded-md hover:bg-gray-800 transition-colors"
+                className="bg-primary text-white px-4 py-2 rounded-md shadow-lg shadow-gray-800/40 hover:shadow-none transition-all"
               >
                 Profile
               </button>
@@ -67,7 +67,7 @@ const Section6 = ({ agents = [] }) => {
         <div className="text-center mt-8">
           <a
             href="/agents"
-            className="bg-primary text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-dark transition-colors"
+            className="bg-primary text-white px-6 py-3 rounded-md font-semibold shadow-md hover:shadow-none transition-all"
           >
             View More
           </a>

@@ -19,8 +19,6 @@ import Properties from "./pages/Properties";
 import ResourceGuide from "./pages/Resource";
 import Agents from "./pages/Agents";
 import About from "./pages/About";
-
-import Blog from "./pages/Blog";
 import AgentProfile from "./pages/AgentProfile";
 import IDXHeaderWrapper from "./components/idxheaderwrapper";
 import MarketReports from "./pages/Selling/MarketReports";

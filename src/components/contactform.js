@@ -21,9 +21,9 @@ function ContactForm() {
     e.preventDefault();
     setError("");
 
-    const serviceId = "YOUR_SERVICE_ID";
-    const templateId = "YOUR_TEMPLATE_ID";
-    const userId = "YOUR_USER_ID";
+    const serviceId = "service_gs03lr8";
+    const templateId = "template_z57hpw3";
+    const userId = "Qahd_s73eur-sSz8w";
 
     try {
       await emailjs.send(

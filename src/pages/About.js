@@ -1,4 +1,5 @@
 import React from "react";
+import ContactForm from "../components/contactform";
 
 function About() {
   return (
@@ -59,14 +60,16 @@ function About() {
         </div>
       </div>
 
+      <ContactForm />
+
       {/* Third Section - Map */}
       <div className="max-w-6xl mx-auto mb-12">
         <h2 className="text-3xl font-bold text-primary mb-4">Our Location</h2>
         <div className="w-full h-80 rounded-lg overflow-hidden shadow-md">
           <iframe
-            title="Candlewood Lake Map"
+            title="Independent Realty Group Office"
             className="w-full h-full"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11649.665656775067!2d-73.45585320245243!3d41.4629318692097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e7f28297a3ad9b%3A0x7031c8eaa8a71359!2sCandlewood%20Lake!5e0!3m2!1sen!2sus!4v1697123398213!5m2!1sen!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3044.2169314724713!2d-73.40560938420942!3d41.467128679259314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e7ef421b3d8b4b%3A0x5fbeb8a3e5e6ad20!2s499%20Federal%20Rd%20Suite%2020A%2C%20Brookfield%2C%20CT%2006804%2C%20USA!5e0!3m2!1sen!2sus!4v1697123398213!5m2!1sen!2sus"
             allowFullScreen=""
             loading="lazy"
           ></iframe>
