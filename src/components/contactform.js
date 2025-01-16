@@ -131,10 +131,11 @@ function ContactForm() {
             {error && <div className="text-red-500 mb-4">{error}</div>}
             <button
               type="submit"
-              className="w-full bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark"
+              className="w-full bg-primary text-white px-4 py-2 rounded-md shadow-lg shadow-gray-800/40 hover:shadow-none hover:bg-primary-dark transition-all"
             >
               Send Message
             </button>
+
           </form>
         )}
       </div>

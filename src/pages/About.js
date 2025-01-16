@@ -17,7 +17,7 @@ function About() {
               href="https://candlewoodlakerealestate.idxbroker.com/idx/contact"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-dark transition-colors"
+              className="bg-primary text-white px-4 py-2 rounded-md shadow-lg shadow-gray-800/40 hover:shadow-none transition-all"
             >
               Contact Us
             </a>

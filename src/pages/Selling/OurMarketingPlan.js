@@ -82,7 +82,7 @@ function OurMarketingPlan() {
           </p>
           <a
             href="/contactus"
-            className="bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary-dark transition-colors"
+            className="bg-primary text-white px-4 py-2 rounded-md shadow-lg shadow-gray-800/40 hover:shadow-none transition-all"
           >
             Contact Us
           </a>

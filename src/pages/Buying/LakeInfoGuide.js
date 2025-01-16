@@ -94,15 +94,15 @@ function LakeInfoGuide() {
         <div className="flex flex-wrap justify-center gap-4 mb-8">
             {["Marinas", "Boating", "Town Parks", "Hiking", "Other Activities"].map((tab) => (
                 <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-6 py-2 font-bold ${
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`px-6 py-2 font-bold transition-all ${
                     activeTab === tab
-                    ? "text-white bg-primary rounded-lg"
-                    : "text-primary bg-white rounded-lg shadow-md "
-                } transition-all`}
+                        ? "text-white bg-primary rounded-lg shadow-lg shadow-gray-800/40 hover:shadow-none"
+                        : "text-primary bg-white rounded-lg shadow-md shadow-gray-800/20 hover:shadow-lg"
+                    }`}
                 >
-                {tab}
+                    {tab}
                 </button>
             ))}
         </div>

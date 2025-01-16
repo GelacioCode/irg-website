@@ -1,6 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
 function Resource() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    const serviceId = "service_gs03lr8"; // Replace with your EmailJS service ID
+    const templateId = "template_ubr0hip"; // Replace with your EmailJS template ID
+    const userId = "Qahd_s73eur-sSz8w"; // Replace with your EmailJS user ID
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        userId
+      );
+      setIsSubmitted(true);
+      setFormData({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error("Error sending email:", err);
+      setError("Failed to send your message. Please try again later.");
+    }
+  };
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       {/* Header Section */}
@@ -254,53 +294,65 @@ function Resource() {
       {/* Contact Form Section */}
       <div className="max-w-6xl bg-white shadow-md rounded-lg p-8 mx-auto mt-12">
         <h2 className="text-3xl font-bold text-primary mb-6">Want your business to be part of this?</h2>
-        <p className="text-gray-600 text-lg mb-4">
-          Contact us now for details:
-        </p>
-        <form>
-          <div className="mb-4">
-            <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
-              Your Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              className="w-full border border-gray-300 rounded-lg p-2"
-              placeholder="Enter your name"
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="w-full border border-gray-300 rounded-lg p-2"
-              placeholder="Enter your email"
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="message" className="block text-gray-700 font-bold mb-2">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              className="w-full border border-gray-300 rounded-lg p-2"
-              placeholder="Write your message here"
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary-dark"
-          >
-            Send Message
-          </button>
-        </form>
+        <p className="text-gray-600 text-lg mb-4">Contact us now for details:</p>
+        {isSubmitted ? (
+          <div className="text-green-500">Thank you! Your message has been sent successfully.</div>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+                Your Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-300 rounded-lg p-2"
+                placeholder="Enter your name"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
+                Email Address
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-300 rounded-lg p-2"
+                placeholder="Enter your email"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="message" className="block text-gray-700 font-bold mb-2">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows="4"
+                className="w-full border border-gray-300 rounded-lg p-2"
+                placeholder="Write your message here"
+              ></textarea>
+            </div>
+            {error && <div className="text-red-500 mb-4">{error}</div>}
+            <button
+              type="submit"
+              className="bg-primary text-white px-4 py-2 rounded-md shadow-lg shadow-gray-800/40 hover:shadow-none transition-all"
+            >
+              Send Message
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );

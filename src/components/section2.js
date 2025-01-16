@@ -179,8 +179,8 @@ Whether you're searching for a year-round waterfront residence, a summer retreat
               ))}
           </div>
           <a
-            href="https://candlewoodlakerealestate.idxbroker.com/idx/contact"
-            className="bg-primary text-white px-6 py-2 rounded-md font-semibold hover:bg-primary-dark transition-colors"
+            href="/contactus"
+            className="bg-primary text-white px-4 py-2 rounded-md shadow-lg shadow-gray-800/40 hover:shadow-none transition-all"
           >
             Contact Us Now
           </a>
