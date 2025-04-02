@@ -1,9 +1,7 @@
 import React from "react";
 import Section6 from "../components/section6";
-
 import Christina from "../assets/images/christina.jpg";
 import Izzy from "../assets/images/izzy.jpg";
-import Sadie from "../assets/images/sadie.jpg";
 import Tammy from "../assets/images/tammy.gif";
 import Ken from "../assets/images/ken.jpg";
 import Jean from "../assets/images/jean.jpg";
@@ -149,21 +147,7 @@ export const agents = [
     currentwidget: 62391,
     soldwidget: 62384,
     
-  },
-  {
-    id: 8,
-    name: "Sadie Virtudes",
-    role: "Realtor",
-    image: Sadie,
-    contact: {
-      email: "sadievirtudes@gmail.com",
-      phone: "2037886705",
-      profile: "#",
-    },
-    currentwidget: 62398,
-    soldwidget: 62399,
-    
-  },
+  }
   
 ];
 

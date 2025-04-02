@@ -8,8 +8,7 @@ const agents = [
     "Brett Jackson RES.0820251",
     "Tammi Ligouri RES.0773592",
     "Maccarthy Jean RES.0785301",
-    "Chris Robinson RES.0765310",
-    "Sadie Virtudes RES.0703020",
+    "Chris Robinson RES.0765310"
   ];
   
   export default agents;
